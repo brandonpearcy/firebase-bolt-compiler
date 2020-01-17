@@ -13,7 +13,7 @@ export default class TypeScriptGenerator {
         Any: "any",
         Boolean: "boolean",
         Number: "number",
-        Null: "void",
+        Null: "null",
         Object: "Object",
         String: "string"
     };
@@ -75,7 +75,7 @@ export default class TypeScriptGenerator {
     private serializeUnionType(type: ExpUnionType): string {
         const types = type.types.map(t => this.serialize(t));
         const uniqueTypes = [...new Set(types)];
-        return uniqueTypes.filter(t => t !== "void").join(" | ");
+        return uniqueTypes.join(" | ");
     }
 
     private serializeGenericType(type: ExpGenericType): string {
