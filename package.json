@@ -4,7 +4,7 @@
     "description": "Compiles Firebase Bolt files to TypeScript, Flow, & more",
     "main": "build/index.js",
     "typings": "build/index.d.ts",
-    "repository": "https://github.com/brandonpearcy/firebase-bolt-compiler",
+    "repository": "https://github.com/wcandillon/firebase-bolt-compiler",
     "author": "William Candillon <wcandillon@gmail.com>",
     "license": "MIT",
     "devDependencies": {
@@ -32,13 +32,18 @@
     "scripts": {
         "lint": "tslint --project tsconfig.json",
         "build": "tsc --pretty",
-        "prepare": "npm run build"
+        "release": "semantic-release pre && npm publish && semantic-release post"
     },
     "dependencies": {
         "commander": "^2.11.0",
+        "condition-circle": "^1.5.0",
         "firebase-bolt": "^0.8.2",
         "get-stdin": "^5.0.1",
         "lodash": "^4.17.4",
+        "semantic-release": "^8.0.3",
         "update-notifier": "^2.2.0"
+    },
+    "release": {
+        "verifyConditions": "condition-circle"
     }
 }
